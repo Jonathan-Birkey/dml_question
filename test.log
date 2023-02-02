@@ -1,0 +1,17 @@
+=BEGIN s-my_test
+Wind River Simics 6 (build 6132 win64) Copyright 2010-2021 Intel Corporation
+
+Expected 1.1
+Got      1.100000023841858
+*** Python script 's-my_test.py' failed: Python error in PyEval_Evalcode():
+Traceback (most recent call last):
+  File "s-my_test.py", line 19, in <module>
+    set_attribute()
+  File "s-my_test.py", line 16, in set_attribute
+    stest.expect_equal(my_dev.myAttribute[0], 1.1)
+  File "D:\mp\builds\mono-39433\core\win64\lib\python-py3\stest.py", line 306, in expect_equal
+  File "D:\mp\builds\mono-39433\core\win64\lib\python-py3\stest.py", line 96, in fail
+stest.TestFailure: expectation failed
+*** Unexpected error message, quitting. Clear sim->fail_on_warnings to change this behaviour.
+*** failed (exit-status 2) ***
+=END s-my_test 2.4 s
