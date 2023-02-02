@@ -1,0 +1,23 @@
+dml 1.2;
+device my_device;
+
+import "my_device_header.dml";
+
+data myStruct myLocalStruct;
+
+attribute myAttribute {
+    parameter documentation = "array for Directional Cosine Matrix";
+    parameter configuration = "optional";
+    parameter type = "[f,i]";
+
+    method set(attr_value_t value) {
+        $myLocalStruct.myFloat = SIM_attr_floating(SIM_attr_list_item(value, 0));
+        $myLocalStruct.myBool = SIM_attr_integer(SIM_attr_list_item(value, 1));
+    }
+
+    method get() -> (attr_value_t value) {
+        value = SIM_alloc_attr_list(2);
+        SIM_attr_list_set_item(&value, 0, SIM_make_attr_floating($myLocalStruct.myFloat));
+        SIM_attr_list_set_item(&value, 1, SIM_make_attr_uint64($myLocalStruct.myBool));
+    }
+}

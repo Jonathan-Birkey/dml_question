@@ -1,0 +1,10 @@
+dml 1.2;
+
+header %{
+    #include "my_header.h"
+%}
+
+extern typedef struct {
+    double myFloat;
+    int myBool;
+} myStruct;
